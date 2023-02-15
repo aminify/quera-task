@@ -52,5 +52,10 @@ document
   .addEventListener('click', changeProducts);
 
 function changeProducts() {
-  // your code here...
+  const newProducts = products.map(product => ({
+    ...product,
+    price: product.price / 2,
+    date: new Date(Number(product.date) * 1000).toLocaleDateString()
+  }));
+  renderProducts(newProducts);
 }
